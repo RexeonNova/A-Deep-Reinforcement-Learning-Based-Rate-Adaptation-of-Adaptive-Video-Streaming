@@ -38,7 +38,7 @@ class MinAtarConfig():
     embedding_size: int = 200
     rssm_node_size: int = 200
     #rssm_info: Dict = field(default_factory=lambda:{'deter_size':200, 'stoch_size':20, 'class_size':20, 'category_size':20, 'min_std':0.1})
-    rssm_info: Dict = field(default_factory=lambda:{'deter_size':200, 'stoch_size':20, 'class_size':32, 'category_size':32, 'min_std':0.1})
+    rssm_info: Dict = field(default_factory=lambda:{'deter_size':200, 'stoch_size':200, 'class_size':32, 'category_size':32, 'min_std':0.1})
     
     #objective desc
     grad_clip: float = 0.5 #100

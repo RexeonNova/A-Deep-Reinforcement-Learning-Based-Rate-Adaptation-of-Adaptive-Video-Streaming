@@ -139,8 +139,8 @@ def main(args):
 
         
         for iter in range(1, trainer.config.train_steps):  
-            if iter%trainer.config.train_every == 0 and iter != 1:
-                train_metrics = trainer.train_batch(train_metrics)
+            #if iter%trainer.config.train_every == 0 and iter != 1:
+                #train_metrics = trainer.train_batch(train_metrics)
             if iter%trainer.config.slow_target_update == 0:
                 trainer.update_target()                
             if iter%trainer.config.save_every == 0:
@@ -158,7 +158,7 @@ def main(args):
             score += rew
 
             if done:
-                #train_metrics = trainer.train_batch(train_metrics)
+                train_metrics = trainer.train_batch(train_metrics)
                 trainer.buffer.add(obs, action.squeeze(0).cpu().numpy(), rew, done)
                 train_metrics['train_rewards'] = score
                 train_metrics['action_ent'] =  np.mean(episode_actor_ent)
